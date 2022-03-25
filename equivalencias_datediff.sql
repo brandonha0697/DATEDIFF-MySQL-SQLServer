@@ -6,7 +6,7 @@ DATEDIFF(DD, '2022-03-25', '2022-03-29')
 - CASE WHEN DATEPART(DW, '2022-03-25') = 1 THEN 1 ELSE 0 END 
 + CASE WHEN DATEPART(DW, '2022-03-29') = 1 THEN 1 ELSE 0 END AS Date_Diff
 
-Funcion SQL equivalente a SERVER:
+-- Funcion SQL equivalente a SERVER:
 
 CREATE FUNCTION TOTAL_WEEKDAYS(date1 DATE, date2 DATE)
 RETURNS INT
@@ -16,7 +16,7 @@ RETURN ABS(DATEDIFF(date2, date1)) + 1
      - (DAYOFWEEK(IF(date1 < date2, date1, date2)) = 1)
      - (DAYOFWEEK(IF(date1 > date2, date1, date2)) = 7);
      
-Llamando a la funcion:
+-- Llamando a la funcion:
 
 SELECT TOTAL_WEEKDAYS('2013-08-03', '2013-08-21') weekdays1,
        TOTAL_WEEKDAYS('2013-08-21', '2013-08-03') weekdays2;
